@@ -1,0 +1,26 @@
+footer{
+    background-color: #382620;
+    margin-top: 40px;
+}
+.footer-info{
+    display: flex;
+    gap: 120px;
+    color: white;
+    padding: 60px;
+}
+.footer-h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+p{
+    font-weight: 100;
+    font-size: .9rem;
+}
+.socialMedia{
+    margin-top: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    font-size: 1.5rem;
+}

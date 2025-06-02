@@ -1,0 +1,42 @@
+.prodCard{
+    height: 350px;
+    width: 250px;
+    border: 2px solid rgba(236, 236, 236, 0.767);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.itemInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin: 15px;
+}
+.prod-img{
+    position: relative;
+    bottom: 2rem;
+}
+.category-p{
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgb(99, 99, 99);
+}
+h2{
+    margin: 0;
+    font-size: 1.25rem;
+    text-align: center;
+}
+h4{
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0;
+}
+button{
+    border: none;
+    color: #391402;
+    background-color: white;
+    cursor: pointer;
+}

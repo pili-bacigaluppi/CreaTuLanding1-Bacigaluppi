@@ -1,6 +1,24 @@
-.greeting{
-    margin-top: 200px;
+.container-prod{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 60px;
+    justify-content: center;
+    padding-top: 40px;
 }
-.greeting-h1{
+.container-info{
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    padding-top: 20px;
+}
+.container-title{
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #391402;
+    margin: 0;
+}
+.container-p{
+    margin-top: 10px;
+    font-size: 1rem;
 }
