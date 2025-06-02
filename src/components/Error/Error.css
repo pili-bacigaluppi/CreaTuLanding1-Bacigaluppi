@@ -1,0 +1,26 @@
+.containerError{
+    display: flex;
+    padding: 40px 90px;
+    align-items: center;
+    justify-content: center;
+}
+.containerErrorDetail{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+}
+.imgError{
+    width: 300px;
+    height: 300px;
+}
+.pError{
+    font-size: .9rem;
+    font-weight: 300;
+    width: 80%;
+}
+.h2Error{
+    font-size: 1.4rem;
+}

@@ -67,7 +67,7 @@ export const products = [
         stock: 15,
         image: "https://i.ibb.co/ccdhyyS1/glass-coffee-cup.png",
         category: "Accessories",
-        categoryId: "accessorie"
+        categoryId: "accessories"
     },
     {
         id: 8,
@@ -77,6 +77,6 @@ export const products = [
         stock: 22,
         image: "https://i.ibb.co/qL7LgdBh/plastic-coffee-cup.png",
         category: "Accessories",
-        categoryId: "accessorie"
+        categoryId: "accessories"
     }
 ];

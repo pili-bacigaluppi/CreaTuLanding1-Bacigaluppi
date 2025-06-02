@@ -26,8 +26,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<ItemListContainer items={items} />} />
           <Route path="products" element={<ItemListContainer items={items} />} />
-          <Route path="products/:categoryId" element={<ItemListContainer items={items} />} />
-          <Route path="products/:categoryId/:id" element={<ItemDetailContainer/>} />
+          <Route path="category/:categoryId" element={<ItemListContainer items={items} />} />
+          <Route path="item/:id" element={<ItemDetailContainer/>} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

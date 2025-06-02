@@ -40,3 +40,8 @@ button{
     background-color: white;
     cursor: pointer;
 }
+.linktoDetail{
+    text-decoration: none;
+    color: #5b301f;
+    font-size: .9rem;
+}

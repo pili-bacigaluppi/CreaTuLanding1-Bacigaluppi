@@ -17,7 +17,7 @@ function ItemList({ items }) {
                         <Item
                             image={item.image}
                             category={item.category}
-                            categoryId={item.categoryId}
+                            description={item.description}
                             key={item.id}
                             id={item.id}
                             nombre={item.nombre}

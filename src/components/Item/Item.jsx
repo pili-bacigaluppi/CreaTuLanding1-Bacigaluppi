@@ -1,7 +1,7 @@
 import "./Item.css";
 import { Link } from "react-router-dom";
 import { IoIosArrowRoundForward } from "react-icons/io";
-function Item({nombre,precio,category,image,description,id,categoryId}) {
+function Item({nombre,precio,category,image,description,id}) {
     return (
         <article className="prodCard">
             <img src={image} alt={description} className="prod-img"/>
@@ -10,7 +10,7 @@ function Item({nombre,precio,category,image,description,id,categoryId}) {
                 <h2>{nombre}</h2>
                 <h4>${precio}</h4>
             </div>
-                <Link to={`/products/${categoryId}/${id}`}>View more details <IoIosArrowRoundForward /></Link>
+                <Link to={`/item/${id}`} className="linktoDetail">View more details <IoIosArrowRoundForward /></Link>
         </article>
     )
 }
