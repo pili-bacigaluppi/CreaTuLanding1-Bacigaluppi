@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "./ItemDetail.css";
 import { FaCartShopping } from "react-icons/fa6";
-function App() {
-    const [cartCount, setCartCount] = useState(0);
+import { CartNumber } from '../../App';
+
+function ItemCount() {
+    const [cartCount, setCartCount] = useState(1);
+    const { addToCartNumber } = useContext(CartNumber);
     const addToCart = () => {
         setCartCount(prevCount => prevCount + 1);
     };
@@ -16,8 +19,8 @@ function App() {
             {cartCount}
             <button className="buttonCount" onClick={addToCart}>+</button>
         </div>
-        <button className='btnAddCart'><FaCartShopping />Add to cart</button>
+        <button className='btnAddCart' onClick={() => addToCartNumber(cartCount)}><FaCartShopping />Add to cart</button>
         </div>
     );
 }
-export default App;
+export default ItemCount;
