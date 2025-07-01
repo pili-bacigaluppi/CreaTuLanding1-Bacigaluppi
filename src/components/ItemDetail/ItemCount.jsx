@@ -1,26 +1,39 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import { CartItems } from '../../App'; 
 import "./ItemDetail.css";
-import { FaCartShopping } from "react-icons/fa6";
-import { CartNumber } from '../../App';
 
-function ItemCount() {
-    const [cartCount, setCartCount] = useState(1);
-    const { addToCartNumber } = useContext(CartNumber);
-    const addToCart = () => {
-        setCartCount(prevCount => prevCount + 1);
-    };
-    const removeFromCart = () => {
-        setCartCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
+function ItemCount({ product }) {
+    const [count, setCount] = useState(1);
+    const { addToCart,addtoCartTotal } = useContext(CartItems);
+    const [showAdded,setShowAdded]=useState(false);
+    const handleAdd = () => {
+    try {
+        const itemAdd = {
+            nombre: product.nombre,
+            precio: product.precio,
+            stock: product.stock,
+            imagen: product.image,
+        };
+        addToCart(itemAdd, count);
+        addtoCartTotal(product.precio * count);
+        setShowAdded(true);
+        setTimeout(() => setShowAdded(false), 1500);
+    } catch (error) {
+        console.error("ERROR:", error);
+    }
     };
     return (
         <div className='countContainer'>
-        <div className='itemCount'>
-            <button className="buttonCount" onClick={removeFromCart}>-</button>
-            {cartCount}
-            <button className="buttonCount" onClick={addToCart}>+</button>
-        </div>
-        <button className='btnAddCart' onClick={() => addToCartNumber(cartCount)}><FaCartShopping />Add to cart</button>
+            <div className='itemCount'>
+                <button className='buttonCount' onClick={() => count > 1 && setCount(count - 1)}>-</button>
+                <span className='itemCount'>{count}</span>
+                <button className='buttonCount' onClick={() => setCount(count + 1)}>+</button>
+            </div>
+            <button className="btnAddCart" onClick={handleAdd} disabled={count > product.stock}>Add to Cart</button>
+            {showAdded && <p className='render-p'>Added to Cart.</p>}
+            {count > product.stock && <p className='render-p'>Insuficient stock.</p>}
         </div>
     );
 }
+
 export default ItemCount;

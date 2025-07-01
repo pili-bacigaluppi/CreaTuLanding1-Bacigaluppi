@@ -1,0 +1,80 @@
+.listProductsC{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.h3Cart{
+    color: #5b301f;
+    margin: 10px 20px;
+}
+.btnModificar{
+    width: 70%;
+    background-color: #C14600;
+    color: #FEF9E1;
+    padding: 4px;
+    border-radius: 15px;
+    border: 2px solid #C14600;
+    cursor: pointer;
+}
+.precio-carrito{
+    margin: 20px 15px 20px 240px;
+    font-size: 1.2rem;
+    align-self: center;
+    color: black;
+}
+.empty-cart{
+    width: 700px;
+    height: 360px;
+    border: 1px solid #E5D0AC;
+    background-color: #fcfcfc;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-carrito{
+    display: grid;
+    grid-template-columns: 100px 320px 100px;
+    grid-template-rows: 100px;
+    align-items: center;
+    width: 690px;
+    height: 105px;
+    background-color: #fffdfd;
+    padding: 10px 20px;
+    border: 1px solid #E5D0AC;
+    border-radius: 12px;
+}
+.product-img{
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+.p-emptycart{
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+.left-cart-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+.right-cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.delete-cart-item{
+    background-color: #ee7787;
+    color: white;
+    padding: 5px 6px;
+    border-radius: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pCart{
+    margin: 5px 0px 5px 20px;
+}

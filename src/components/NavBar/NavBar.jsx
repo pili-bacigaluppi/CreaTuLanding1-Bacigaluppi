@@ -18,7 +18,7 @@ function NavBar() {
                 <li><Link to="/category/accessories" className="links">Accessories</Link></li>
             </ul>
             <article className="nav-right">
-                <CartWidget />
+                <Link to="/cart"><CartWidget /></Link>
                 <button className="btnLogin">Log in/Sign up</button>
             </article>
         </nav>

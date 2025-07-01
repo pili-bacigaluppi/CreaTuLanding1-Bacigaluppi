@@ -4,17 +4,16 @@ import './ItemListContainer.css';
 
 function ItemListContainer({ items }) {
     const { categoryId } = useParams();
-
     const filteredItems = categoryId
         ? items.filter(item => {
             const map = {
                 blends: 'Blends',
-            press: 'Coffee-Press',
-            accessories: 'Accessories',
+                press: 'Coffee-Press',
+                accessories: 'Accessories',
             };
             return item.category === map[categoryId];
         })
-    : items;
+        : items;
     return (
         <div>
             <ItemList items={filteredItems} />

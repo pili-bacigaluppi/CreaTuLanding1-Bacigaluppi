@@ -38,6 +38,7 @@
 }
 .detailPrice{
     color: #391402;
+    margin: 20px 0px;
 }
 .countContainer{
     display: flex;
@@ -65,4 +66,20 @@
     justify-content: center;
     gap: 8px;
     font-size: .9rem;
+}
+.btnAddCart:disabled {
+    background-color: #a89081;
+    color: #f1f1f1;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.count{
+    font-weight:500;
+    font-size: 1.1rem;
+}
+.render-p{
+    margin: 0;
+    position: absolute;
+    z-index: 3;
+    bottom: 7.6rem;
 }

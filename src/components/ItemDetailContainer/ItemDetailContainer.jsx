@@ -9,6 +9,7 @@ function ItemDetailContainer({items}) {
     const [prod, setProd] = useState(null);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
+        if (items.length === 0) return;
         const foundProduct = items.find((p) => p.id === id);
         if (foundProduct) {
             setProd(foundProduct);

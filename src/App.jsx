@@ -1,45 +1,66 @@
-import { useState,useEffect } from 'react'
-import { createContext } from 'react';
-import Layout from './components/Layout/Layout';
+import { useState, useEffect, createContext } from 'react';
+import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import Footer from "./components/Footer/Footer";
 import Error from "./components/Error/Error";
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import './App.css'
+import CartItemContainer from './components/Cart/CartItemContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './App.css';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-export const CartNumber = createContext(0);
-import { getFirestore,collection,getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+export const CartItems = createContext([]);
+
 function App() {
   //firebase
-  const [items,setItems]=useState([]);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
   const db = getFirestore();
-  useEffect(()=>{
-    const itemCollection = collection(db,"items");
+  useEffect(() => {
+    const itemCollection = collection(db, "items");
     getDocs(itemCollection).then((snapshot) => {
-    const itemsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setItems(itemsData);
-  });
-  },[]);
-  // context
-  const [cNumber, setcNumber]=useState(0);
-  const addToCartNumber = (quantity = 1) => {
+      const itemsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setItems(itemsData);
+      setLoading(false);
+    });
+  }, []);
+  //context
+  const [cNumber, setcNumber] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+  const addToCart = (item, quantity) => {
+    setCartItems(prev => [...prev, { ...item, quantity }]);
     setcNumber(prev => prev + quantity);
-  }
+  };
+  const [cartTotal, setCartTotal] = useState(0);
+  const addtoCartTotal = (total) => {
+    setCartTotal(prev => prev + total);
+  };
   return (
-    <CartNumber.Provider value={{cNumber,addToCartNumber}}>
+    <CartItems.Provider value={{cNumber, cartItems, addToCart, cartTotal,addtoCartTotal, setCartItems, setCartTotal, setcNumber}}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<ItemListContainer items={items} />} />
-            <Route path="products" element={<ItemListContainer items={items} />} />
-            <Route path="category/:categoryId" element={<ItemListContainer items={items} />} />
-            <Route path="item/:id" element={<ItemDetailContainer items={items} />} />
-            <Route path="*" element={<Error />} />
-          </Route>
-        </Routes>
+        <NavBar />
+        <main>
+          <Routes>
+            {loading ? (
+              <Route path="*" element={
+                <div className="loading-container">
+                  <h2 className="loadingP">Loading...</h2>
+                </div>
+              } />
+            ) : (
+              <>
+                <Route index element={<ItemListContainer items={items} />} />
+                <Route path="products" element={<ItemListContainer items={items} />} />
+                <Route path="category/:categoryId" element={<ItemListContainer items={items} />} />
+                <Route path="item/:id" element={<ItemDetailContainer items={items} />} />
+                <Route path="cart" element={<CartItemContainer />} />
+                <Route path="*" element={<Error />} />
+              </>
+            )}
+          </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
-    </CartNumber.Provider>
+    </CartItems.Provider>
   );
 }
-export default App
+export default App;

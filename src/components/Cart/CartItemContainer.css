@@ -1,0 +1,14 @@
+.carritoProductos{
+    padding: 30px;
+}
+.sectionPagos{
+    display: flex;
+    gap: 90px;
+    margin: 40px;
+}
+.h2Cart{
+    margin-bottom: 25px;
+    color: #391402;
+    font-size: 1.9rem;
+    margin-left: 40px;
+}

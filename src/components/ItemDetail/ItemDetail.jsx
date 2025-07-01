@@ -1,5 +1,6 @@
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css";
+
 function ItemDetail({ product }) {
     return (
         <div className="detailContainer">
@@ -15,7 +16,7 @@ function ItemDetail({ product }) {
                         <hr className="line"/>
                         <p className="detailP">{product.descripcion}</p>
                     </div>
-                    <ItemCount />
+                    <ItemCount product={product}/>
                 </div>
             </article>
         </div>
