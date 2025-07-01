@@ -22,12 +22,6 @@ Este proyecto es un **E-commerce** moderno construido con React, React Router y 
 
 ---
 
-## 📸 Captura
-
-(./src/assets/captura-readME.png)
-
----
-
 ## 🚀 Cómo ver el proyecto
 
 Puedes clonar este repositorio y abrir el archivo `index.html` en tu navegador favorito:
